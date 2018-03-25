@@ -17,7 +17,7 @@ consumer_key = "eKytO5h04YQhqwczDEXc0ubay"
 consumer_secret = "WktfrnSWTSzBKwEoiooAPIQ11SAb09yjfsIO3KcClYRQsgb36b"
 # This is a basic listener that just prints received tweets to stdout.
 
-
+#overwrite stream listener 
 class StdOutListener(StreamListener):
     debug_file = open('debug.txt', mode = 'a')
     def on_data(self, data):
@@ -28,7 +28,9 @@ class StdOutListener(StreamListener):
             for img in media:
                     
                 img_url = img['media_url']
-                print(img_url)
+                print(img_url) #get image url 
+                 #add your path here
+                 # then download it to this path.
                 request.urlretrieve(img_url, 'C:\\Users\\noura\\Desktop\\pics\{}'.format(img_url[-19:]))
         return True
     
@@ -50,6 +52,6 @@ if __name__ == '__main__':
     auth.set_access_token(access_token, access_token_secret)
     stream = Stream(auth, l, async=True)
 
-    # This line filter Twitter Streams to capture data by the keywords: 'python', 'javascript', 'ruby'
+    # This line filter Twitter Streams to capture images from hashtags.
    
     stream.filter(track=['#PalmSunday'], languages=["en"])
