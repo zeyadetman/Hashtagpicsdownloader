@@ -34,10 +34,7 @@ class StdOutListener(StreamListener):
                 request.urlretrieve(img_url, 'C:\\Users\\noura\\Desktop\\pics\{}'.format(img_url[-19:]))
         return True
     
-            
-            
-            
-            
+           
 
     def on_error(self, status):
         print(status)
