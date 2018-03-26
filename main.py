@@ -46,7 +46,6 @@ class StdOutListener(StreamListener):
                 print(img_url) #get image url 
                  #add your path here
                  # then download it to this path.
-                print(path)
                 request.urlretrieve(img_url, str(path+'/{}').format(img_url[-19:]))
         return True
     
